@@ -5,8 +5,9 @@ MAINTAINER Martijn van Maurik <docker@vmaurik.nl>
 ENV HOME /root
 
 RUN apt-get update
-RUN apt-get install -y apache2 php-pear php-horde php-horde-imp php-horde-groupware php-horde-lz4 php5-imagick
+RUN apt-get install -y apache2 php-pear php-horde php-horde-imp php-horde-groupware php-horde-lz4 php5-imagick php5-dev
 RUN pear install Net_DNS2
+RUN pecl install lzf
 
 EXPOSE 80
 
