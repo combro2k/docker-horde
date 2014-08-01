@@ -8,6 +8,7 @@ RUN apt-get update
 RUN apt-get install -y apache2 php-pear php-horde php-horde-imp php-horde-groupware php-horde-lz4 php5-imagick php5-dev
 RUN pear install Net_DNS2
 RUN pecl install lzf
+RUN echo extension=lzf.so > /etc/php5/mods-available/lzf.ini && php5enmod lzf
 
 EXPOSE 80
 
