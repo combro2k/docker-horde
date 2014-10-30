@@ -8,9 +8,9 @@ RUN apt-get update
 RUN apt-get install -y apache2 php-pear php-horde php-horde-imp php-horde-groupware php-horde-ingo php-horde-lz4 php5-imagick php5-dev
 RUN apt-get install -y php-net-sieve
 RUN pear install Net_DNS2
-RUN pear channel-update pear.horde.org && pear upgrade-all
 RUN pecl install lzf
 RUN echo extension=lzf.so > /etc/php5/mods-available/lzf.ini && php5enmod lzf
+RUN pear channel-update pear.horde.org && pear upgrade-all
 
 EXPOSE 80
 
