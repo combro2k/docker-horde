@@ -5,11 +5,14 @@ MAINTAINER Martijn van Maurik <docker@vmaurik.nl>
 ENV HOME /root
 
 RUN apt-get update
-RUN apt-get install -y apache2 php-pear php-horde php-horde-imp php-horde-groupware php-horde-ingo php-horde-lz4 php5-imagick php5-dev
+RUN apt-get install -y apache2 php-pear php-horde php-horde-imp php-horde-groupware php-horde-ingo php-horde-lz4 php5-imagick php5-dev php5-memcache php5-memcached
 RUN apt-get install -y php-net-sieve
 RUN pear install Net_DNS2
 RUN pecl install lzf
+RUN pecl install horde_lz4
+
 RUN echo extension=lzf.so > /etc/php5/mods-available/lzf.ini && php5enmod lzf
+RUN echo extension=horde_lz4.so > /etc/php5/mods-available/horde_lzf.ini && php5enmod horde_lzf
 RUN pear channel-update pear.horde.org && pear upgrade-all
 
 EXPOSE 80
