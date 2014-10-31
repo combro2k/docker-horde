@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM phusion/baseimage:latest
 
 MAINTAINER Martijn van Maurik <docker@vmaurik.nl>
 
